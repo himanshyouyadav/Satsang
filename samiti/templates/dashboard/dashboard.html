@@ -1,0 +1,93 @@
+
+{% extends 'account/mdb-base.html' %}
+
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+  <title>Dashboard</title>
+{% endblock %}
+
+
+{% block content %}
+   
+
+    <!-- <h1>Welcome {{ request.user.username }}</h1><hr> -->
+    <div class="container">
+		
+        <div class="table-wrapper">
+			      <!-- TABLE -->
+				  <section class="table-container border rounded-5">
+					<div class="container table-responsive">
+					  <table class="table table-striped">
+						<thead>
+						  <tr>
+							<th scope="col">#</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Address</th>
+							<th scope="col">Edit</th>
+							<th scope="col">Delete</th>
+							<th scope="col">Pdf</th>
+							
+						  </tr>
+						</thead>
+						<tbody>
+							{% for member in page_obj %}
+							
+								<tr>
+									<th scope="row">{{ forloop.counter0|add:page_obj.start_index  }}</th>
+									<td>{{member.first_name}} {{member.last_name}}</td>
+									<td>{{member.email}}</td>
+									<td>{{member.perma_street}}, {{member.perma_city}}, {{member.perma_state}}</td>
+									<td>
+										<a href="{% url 'edit_member' member.id  %}" class="btn btn-success btn-sm btn-rounded" role="button" aria-pressed="true"><i class="fas fa-pen text-light"></i></a>
+									</td>
+									<td>
+										<a href="{% url 'delete_member' member.id  %}" class="btn btn-danger btn-sm btn-rounded" role="button" aria-pressed="true" ><i class="fas fa-times text-light"></i></a>
+									</td>
+									<td>
+										<a href="{% url 'member_pdf' member.id  %}" class="btn btn-primary btn-sm btn-rounded" role="button" aria-pressed="true" ><i class="fas fa-file-pdf text-light"></i></a>
+									</td>
+								</tr>
+							{% endfor %}	
+						</tbody>
+					  </table>
+
+					  <section class="p-4 d-flex justify-content-center">
+						<nav aria-label="...">
+						  <ul class="pagination pagination-circle">
+
+							{% if page_obj.has_previous %}
+								<li class="page-item">
+									<a href="?page=1" class="page-link">1</a>
+								</li>
+								<li class="page-item">
+									<a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a>
+								</li>
+							{% endif %}
+							<li class="page-item active" aria-current="page">
+							  <a class="page-link" href="#">{{ page_obj.number }} <span class="visually-hidden">(current)</span></a>
+							</li>
+
+							{% if page_obj.has_next %}
+								<li class="page-item">
+									<a href="?page={{ page_obj.next_page_number }} " class="page-link">Next</a>
+								</li>	
+								<li class="page-item">
+									<a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">{{ page_obj.paginator.num_pages }}</a>
+								</li>
+							{% endif %}
+
+						  </ul>
+						</nav>
+					  </section>
+					  <div class="d-flex justify-content-center p-5">
+						<a href="{% url 'member_register' %}" class="btn btn-success" data-toggle="modal"><span>Add New Satsangi</span></a>
+					  </div>
+					 </div>  
+				  </section>
+        </div>
+    </div>
+<script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+{% endblock %}      

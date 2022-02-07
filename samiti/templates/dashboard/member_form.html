@@ -1,0 +1,277 @@
+{% extends 'account/mdb-base.html' %}
+
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'dashboard/css/member_form.css' %}">
+  <title>Dashboard</title>
+{% endblock %}
+
+
+{% block content %}
+
+<br>
+<div class="member-form">
+  <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3 class="fs-3 text-uppercase">Personal Details</h3>
+    <div class="col-md-6">
+      <label for="first_name" class="form-label">First Name</label>
+      <input name = "{{form.first_name.name}}" {% if form.first_name.value is not None %} value="{{ form.first_name.value }}" {% endif %} type="text" class="form-control" id="first_name">
+    </div>
+    <div class="col-md-6">
+      <label for="last_name" class="form-label">Last Name</label>
+      <input name = "{{form.last_name.name}}" {% if form.last_name.value is not None %} value="{{ form.last_name.value }}" {% endif %} type="text" class="form-control" id="last_name">
+    </div>
+    <div class="col-md-12">
+      <label for="father_name" class="form-label">Father Name</label>
+      <input name = "{{form.father_name.name}}" {% if form.father_name.value is not None %} value="{{ form.father_name.value }}" {% endif %} type="text" class="form-control" id="father_name">
+    </div>
+    
+    <div class="col-md-4">
+      <label for="age" class="form-label">Age</label>
+      <input name = "{{form.Age.name}}" {% if form.Age.value is not None %} value="{{ form.Age.value }}" {% endif %} type="number" class="form-control" id="age">
+    </div>
+    <div class="col-md-4">
+      <label for="email" class="form-label">Email</label>
+      <input name = "{{form.email.name}}" {% if form.email.value is not None %} value="{{ form.email.value }}" {% endif %}type="text" class="form-control" id="email">
+    </div>
+    <div class="col-md-4">
+      <label for="mobile" class="form-label">Phone No</label>
+      <input name = "{{form.mobile.name}}" {% if form.mobile.value is not None %} value="{{ form.mobile.value }}" {% endif %} type="number" class="form-control" id="mobile">
+    </div>
+
+    <h3 class="fs-3 text-uppercase">Present Address</h3>
+    <div class="col-6">
+      <label for="street" class="form-label">Street</label>
+      <input name = "{{form.pres_street.name}}" {% if form.pres_street.value is not None %} value="{{ form.pres_street.value }}" {% endif %} type="text" class="form-control" id="pres_street" placeholder="1234 Main St">
+    </div>
+    <div class="col-6">
+      <label for="city" class="form-label">City</label>
+      <input name = "{{form.pres_city.name}}" {% if form.pres_city.value is not None %} value="{{ form.pres_city.value }}" {% endif %} type="text" class="form-control" id="pres_city" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="col-md-6">
+      <label for="inputState" class="form-label">State</label>
+      <input name = "{{form.pres_state.name}}" {% if form.pres_state.value is not None %} value="{{ form.pres_state.value }}" {% endif %} type="text" class="form-control" id="pres_state">
+    </div>
+    <div class="col-md-6">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input name = "{{form.pres_pin.name}}" {% if form.pres_pin.value is not None %} value="{{ form.pres_pin.value }}" {% endif %} type="number" class="form-control" id="pres_pin">
+    </div>
+
+    <h3 class="fs-3 text-uppercase">Permanent Address</h3>
+    <div class="col-6">
+      <label for="street" class="form-label">Street</label>
+      <input name = "{{form.perma_street.name}}" {% if form.perma_street.value is not None %} value="{{ form.perma_street.value }}" {% endif %} type="text" class="form-control" id="perma_street" placeholder="1234 Main St">
+    </div>
+    <div class="col-6">
+      <label for="city" class="form-label">City</label>
+      <input name = "{{form.perma_city.name}}" {% if form.perma_city.value is not None %} value="{{ form.perma_city.value }}" {% endif %} type="text" class="form-control" id="perma_city" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="col-md-6">
+      <label for="inputState" class="form-label">State</label>
+      <input name = "{{form.perma_state.name}}" {% if form.perma_state.value is not None %} value="{{ form.perma_state.value }}" {% endif %} type="text" class="form-control" id="perma_state">
+    </div>
+    <div class="col-md-6">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input name = "{{form.perma_pin.name}}" {% if form.perma_pin.value is not None %} value="{{ form.perma_pin.value }}" {% endif %} type="number" class="form-control" id="perma_zip">
+    </div>
+
+
+    <h3 class="fs-3 text-uppercase">Miscellaneous Details</h3>
+    <div class="col-6">
+      <label for="education" class="form-label">Education</label>
+      <input name = "{{form.education.name}}" {% if form.education.value is not None %} value="{{ form.education.value }}" {% endif %} type="text" class="form-control" id="education" placeholder="Primary, Secondary, Graduated">
+    </div>
+    <div class="col-6">
+      <label for="profession" class="form-label">Profession</label>
+      <input name = "{{form.profession.name}}" {% if form.profession.value is not None %} value="{{ form.profession.value }}" {% endif %} type="text" class="form-control" id="profession" placeholder="Student, Engineer, Bussinessman">
+    </div>
+    <div class="col-md-6">
+      <label for="religion" class="form-label">Religion</label>
+      <input name = "{{form.religion.name}}" {% if form.religion.value is not None %} value="{{ form.religion.value }}" {% endif %} type="text" class="form-control" id="religion">
+    </div>
+    <div class="col-md-6">
+      <label for="varna" class="form-label">Varna</label>
+      <input name = "{{form.varna.name}}" {% if form.varna.value is not None %} value="{{ form.varna.value }}" {% endif %} type="text" class="form-control" id="varna">
+    </div>
+    <div class="col-md-12">
+
+    {% if form.signature.value %}  
+    <label class="form-label" for="signature">Update Your Signature :</label><br>
+    <img
+        src="/media/{{ form.signature.value}}"
+        class="img-fluid rounded"
+        alt="Townhouses and Skyscrapers"
+        height="70px"
+        width="300px"
+      />
+      <br><br>
+    {% else %}
+    <label class="form-label" for="signature">Upload Your Signature :</label><br>
+    {% endif %}
+
+      <input type="file" name="{{form.signature.name}}" accept="image/*" id="id_signature">  
+
+    {% if form.signature.value %}  
+      <input type="checkbox" name="signature-clear" id="signature-clear_id">
+      <label for="signature-clear_id">Delete Signature</label><br>
+    {% endif %}
+    </div>
+
+      <div class="col-md-6">
+      <button type="submit" class="btn btn-primary btn-lg" id="submit">Submit</button>
+    </div>  
+    <!-- {{form.signature.name}} - {{ form.signature.value }} -->
+  </form>
+  </div>
+  <br>
+
+<!-- 
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+      <input type="submit" name="Submit">
+    </form> -->
+    <!-- {% for input in form %}
+    {% endfor %} -->
+
+
+
+{% endblock %}  
+
+{% block script %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+    <script>
+    if (annyang) {
+      // Add our commands to annyang
+
+      var commands = {
+
+              'Fill first name as *tag' : function(detected_text)
+              {
+                  document.getElementById("first_name").value = detected_text;
+              },
+
+              'Fill last name as *tag' : function(detected_text)
+              {
+                  document.getElementById("last_name").value = detected_text;
+              },
+
+              'Fill father name as *tag' : function(detected_text)
+              {
+                  document.getElementById("father_name").value = detected_text;
+              },
+
+              'Fill age as *tag' : function(detected_text)
+              {
+                  document.getElementById("father_name").value = detected_text;
+              },
+
+              'Fill email as *tag' : function(name)
+              {
+                  name = name.split(" ").join("");
+                  if(name.includes("attherate"))
+                  {
+                      name = name.replace("attherate",'@');
+                      
+                  }
+                  name = name.toLowerCase();
+                  document.getElementById("email").value = name;
+                  
+              },
+
+              'Fill phone number as *tag' : function(detected_text)
+              {
+                  document.getElementById("mobile").value = detected_text;
+              },
+
+              // Present Address
+              
+              'Fill present street as *tag' : function(detected_text)
+              {
+                  document.getElementById("pres_street").value = detected_text;
+              },
+
+              'Fill present city as *tag' : function(detected_text)
+              {
+                  document.getElementById("pres_city").value = detected_text;
+              },
+
+              'Fill present state as *tag' : function(detected_text)
+              {
+                  document.getElementById("pres_state").value = detected_text;
+              },
+              'Fill present pin as *tag' : function(detected_text)
+              {
+                  document.getElementById("pres_pin").value = detected_text;
+              },
+
+              // Permanent Address
+
+              'Fill permanent street as *tag' : function(detected_text)
+              {
+                  document.getElementById("perma_street").value = detected_text;
+              },
+
+              'Fill permanent city as *tag' : function(detected_text)
+              {
+                  document.getElementById("perma_city").value = detected_text;
+              },
+
+              'Fill permanent state as *tag' : function(detected_text)
+              {
+                  document.getElementById("perma_state").value = detected_text;
+              },
+              'Fill permanent pin as *tag' : function(detected_text)
+              {
+                  document.getElementById("perma_pin").value = detected_text;
+              },
+
+              // Miscellaneous Details
+
+              'Fill education as *tag' : function(detected_text)
+              {
+                  document.getElementById("education").value = detected_text;
+              },
+
+              'Fill profession as *tag' : function(detected_text)
+              {
+                  document.getElementById("profession").value = detected_text;
+              },
+
+              'Fill religion as *tag' : function(detected_text)
+              {
+                  document.getElementById("religion").value = detected_text;
+              },
+
+              'Fill varna as *tag' : function(detected_text)
+              {
+                  document.getElementById("varna").value = detected_text;
+              },
+
+              'Upload signature' : function()
+              {
+                document.getElementById("id_signature").click();
+              },
+
+              'submit form' : function()
+              {
+                  document.getElementById("submit").click();
+              },
+
+            }
+
+
+      annyang.addCommands(commands);
+
+      // Start listening
+      annyang.start();
+
+    }
+    </script>
+
+{% endblock%}

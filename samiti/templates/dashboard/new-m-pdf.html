@@ -1,0 +1,196 @@
+{% load static %}
+
+<p style="text-align:center"><img alt=""
+		src="http://localhost:8000{% static 'account/img/logo.png' %}" 
+		style="height:100px; width:400px" /></p>
+		<!-- NEED TO UPDATE WHILE DEPLOYING -->
+
+<hr />
+<hr />
+<h1 style="text-align:center">&nbsp;</h1>
+
+<h1 style="text-align:center"><span style="font-size:26px;"><span style="font-family:Georgia,serif;">PERSONAL
+			DETAILS</span></span></h1>
+
+<hr />
+<table border="1" cellpadding="3" cellspacing="3" style="width:1188.99px ; border-color:transparent">
+	<tbody>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>UNIQUE ID:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.id}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Mobile:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.mobile}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>First Name :</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.first_name}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Last Name:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.last_name}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Father Name:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.father_name}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Age :</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.Age}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Email :</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px;"><span
+						style="font-family:Georgia,serif;"><a
+							href="{{member.email}}">{{member.email}}</a></span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 style="text-align:center">&nbsp;</h3>
+
+<h1 style="text-align:center"><span style="font-size:26px;"><span style="font-family:Georgia,serif;">PERMANENT
+			ADDRESS</span></span></h1>
+
+<hr />
+<table border="1" cellpadding="3" cellspacing="3" style="width:1188.99px;border-color:transparent">
+	<tbody>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Street :</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px;"><span
+						style="font-family:Georgia,serif;">{{member.perma_street}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>City:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.perma_city}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>State&nbsp;:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.perma_state}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Pin:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.perma_pin}}</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 style="text-align:center">&nbsp;</h3>
+
+<p>&nbsp;</p>
+
+<h1 style="text-align:center"><span style="font-size:26px;"><span style="font-family:Georgia,serif;">PRESENT
+			ADDRESS</span></span></h1>
+
+<hr />
+<table border="1" cellpadding="3" cellspacing="3" style="width:1188.99px;border-color:transparent">
+	<tbody>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Street :</strong></span></span></td>
+			<td style="text-align:center; width:593px">
+				<font face="Georgia, serif"><span style="font-size: 18px;">{{member.pres_street}}</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>City:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.pres_city}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>State&nbsp;:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.pres_state}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Pin:</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.pres_pin}}</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 style="text-align:center">&nbsp;</h3>
+
+<p>&nbsp;</p>
+
+<h1 style="text-align:center"><span style="font-size:26px;"><span style="font-family:Georgia,serif;">MISCELLANIOUS
+			DETAILS</span></span></h1>
+
+<hr />
+<table border="1" cellpadding="3" cellspacing="3" style="width:1188.99px;border-color:transparent">
+	<tbody>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Education :</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.education}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center;width:583px;"><span style="font-size:18px;"><span
+						style="font-family:Times New Roman,Times,serif;"><strong>Profession
+							:&nbsp;</strong></span></span></td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.profession}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Religion :&nbsp;</strong></span></span>
+			</td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.religion}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Varna :&nbsp;</strong></span></span>
+			</td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.varna}}</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:center; width:583px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif"><strong>Ritwik :&nbsp;</strong></span></span>
+			</td>
+			<td style="text-align:center; width:593px"><span style="font-size:18px"><span
+						style="font-family:Times New Roman,Times,serif">{{member.ritwik.username}}</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<p><span style="font-size:16px;"><span style="font-family:Georgia,serif;">I hereby accept all terms and condition and I
+			will make sure that I will follow all the rules and regulation of the satsang samiti.</span></span></p>
+
+{% if member.signature != NULL%}
+	<p><img alt="Signature" 
+		height="70px"
+		src="{{ member.signature.path }}"    
+		width="300px" />
+	</p>
+{% else %}
+<p><span style="font-size:20px;"><span style="font-family:Georgia,serif;">{{member.first_name}} {{member.last_name}}.</span></span></p>
+{% endif %}	
+	

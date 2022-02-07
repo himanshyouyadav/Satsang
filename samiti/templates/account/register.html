@@ -1,0 +1,110 @@
+{% extends 'account/mdb-base.html' %}
+
+{% load static %}
+
+
+{% block head %}
+  <!-- <link rel="stylesheet" href="{% static 'account/css/register.css' %}"> -->
+  <link rel="stylesheet" href="{% static 'account/css/login.css' %}">
+  <title>Register</title>
+
+  <style>
+    .login-bg
+    {
+      background-image: url("{% static 'account/img/loagin-banner.jpg' %}");
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+
+  <title>Register</title>
+{% endblock%}
+
+{% block content %}
+    <div class="container-fluid ps-md-0">
+        <div class="row g-0">
+          <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image login-bg "></div>
+          <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-9 col-lg-8 mx-auto">
+                    <h3 class="login-heading mb-4">Become a Member</h3>
+                    <br>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <br>
+                    <form method="post">
+                      {% csrf_token %}
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input name = "username" type="username" id="form3Example3" class="form-control" />
+                        <label class="form-label" for="form3Example3">Username</label>
+                      </div>
+
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input name="email" type="email" id="form3Example3" class="form-control" />
+                        <label class="form-label" for="form3Example3">Email address</label>
+                      </div>
+                    
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                        <input name="pass1" type="password" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Password</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                        <input name="pass2" type="password" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Confirm Password</label>
+                      </div>
+                    
+                      <!-- Checkbox -->
+                      <div class="form-check d-flex justify-content-center mb-4">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                        <label class="form-check-label" for="form2Example33">
+                          I agree to terms and condition.
+                        </label>
+                      </div>
+                    
+                      <!-- Submit button -->
+                      <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+                    
+                      <!-- Register buttons -->
+                      <div class="text-center">
+                        <p>Alredy a member? <a href="/login">Login</a></p>
+                        <p>or sign up with:</p>
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                          <i class="fab fa-facebook-f"></i>
+                        </button>
+                    
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                          <i class="fab fa-google"></i>
+                        </button>
+                    
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                          <i class="fab fa-twitter"></i>
+                        </button>
+                    
+                        <button type="button" class="btn btn-primary btn-floating mx-1">
+                          <i class="fab fa-github"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+{% endblock %}    

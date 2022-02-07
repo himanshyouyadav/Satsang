@@ -1,0 +1,40 @@
+{% extends 'account/mdb-base.html' %}
+{% load static %}
+
+
+    {% block head %}
+        <style>
+          /* Default height for small devices */
+          #intro-example {
+            height: 94.1vh;
+            background-image: url("{% static 'account/img/landing-back.png' %}")
+          }
+      
+          /* Height for devices larger than 992px */
+          @media (min-width: 992px) {
+            #intro-example {
+              height: 93.5vh;
+            }
+          }
+        </style>
+    {% endblock %}
+
+    {% block content %}
+
+      <!-- Background image -->
+      <div id="intro-example" class="p-5 text-center bg-image">
+        <div class="mask">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+              <h1 class="mb-3 text-light">Join Our Community</h1>
+              <h5 class="mb-4 text-light">Spread the love and happiness</h5>
+              <a class="btn btn-light btn-lg m-2" href="/login" role="button" rel="nofollow" target="_blank">LOGIN</a>
+              <a class="btn btn-warning btn-lg m-2" href="/register" target="_blank" role="button">CREATE A NEW ACCOUNT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Background image -->
+    
+
+    {% endblock %}

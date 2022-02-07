@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <!-- MDB icon -->
+        <!-- <link rel="icon" href="{% static 'MDB/img/mdb-favicon.ico' %}" type="image/x-icon" /> -->
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+        <!-- Google Fonts Roboto -->
+        <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+        />
+        <!-- MDB -->
+        <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
+        <link rel="stylesheet" href="{% static 'MDB/css/mdb.min.css' %}">
+        <link rel="stylesheet" href="{% static 'account/css/mdb-base.css' %}">
+
+
+        {% block head %}
+
+        {% endblock%}
+
+
+    </head> 
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="/">
+            <img
+                src="{% static 'account/img/logo.png' %}"
+                height="30"
+                alt="MDB Logo"
+                loading="lazy"
+                style="margin-top: -1px;"
+            />
+            
+            </a>
+
+            <!-- Toggle button -->
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <i class="fas fa-bars text-dark"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a type="button" class=" btn btn-light nav-link btn-sm px-3 my-1 mx-3" href="/dashboard"><strong class="txt-light">Dashboard</strong></a>
+                    </li>
+                    <!-- <li class="nav-item me-3 me-lg-1 active">
+                        <a class="nav-link" href="/dashboard">
+                          <span><i class="fas fa-igloo"></i></span>
+                        </a>
+                    </li> -->
+                {% endif %} 
+                <li class="nav-item">
+                    <a type="button" class="nav-link btn btn-light nav-link btn-sm px-3 my-1 mx-3" href="https://satsang.org.in"><strong>Website</strong></a>
+                </li>   
+            </ul>
+            <!-- Left links -->
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a type="button" class="btn nav-link btn-warning px-3 me-2" href="/logout">
+                    <strong class="text-light" >Logout</strong>
+                    </a>
+                </li> 
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <a type="button" class="btn nav-link btn-light px-3 me-2 my-1" href = "/login">
+                    <strong class="text-dark">Login</strong>
+                    </a>
+                    <a type="button" class="btn nav-link btn-warning px-2 me-2 my-1" href="/register">
+                    <strong class="text-light">Create a account</strong>
+                    </a>
+            </ul>
+            {% endif %}
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+
+        {% block content %}
+        {% endblock %}
+            
+        <script type="text/javascript" src="{% static 'MDB/js/mdb.min.js' %}"></script>
+        <!-- Custom scripts -->
+        <script type="text/javascript"></script>
+        {% block script %}
+
+        {% endblock%}
+    </body>
+
+</html>
